@@ -1,0 +1,37 @@
+.grid {
+  display: grid;
+  margin: auto;
+  @include gridWidth();
+
+  @include gridTemplateColumns(12);
+  @include gridColumnGap();
+
+
+  .col {
+    @include col-rules;
+
+    &-xs {
+      @include media-xs() { @include col-rules; }
+    }
+
+    &-sm {
+      @include media-sm() { @include col-rules; }
+    }
+
+    &-md {
+      @include media-md() { @include col-rules; }
+    }
+
+    &-lg {
+      @include media-lg() { @include col-rules; }
+    }
+
+    &-xl {
+      @include media-xl() { @include col-rules; }
+    }
+
+    &-xxl {
+      @include media-xxl() { @include col-rules; }
+    }
+  }
+}

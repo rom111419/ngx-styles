@@ -1,0 +1,18 @@
+// mixins without dependencies
+@mixin scroll($color:$gray) {
+  &::-webkit-scrollbar-track {
+  }
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 7px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: $color
+  }
+  &::-webkit-scrollbar-track-piece {
+  }
+}
+
+
+// mixins with mixin dependencies
+

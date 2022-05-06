@@ -1,0 +1,91 @@
+// mixins without dependencies
+$gridWidth-xs: 400px;
+$gridWidth-sm: 540px;
+$gridWidth-md: 720px;
+$gridWidth-lg: 960px;
+$gridWidth-xl: 1140px;
+$gridWidth-xxl: 1320px;
+
+$colGap-xs: 10px;
+$colGap-sm: 10px;
+$colGap-md: 10px;
+$colGap-lg: 10px;
+$colGap-xl: 10px;
+$colGap-xxl: 10px;
+
+$colWidth-xs: ($gridWidth-xs - ($colGap-xs * 11)) / 12;
+$colWidth-sm: ($gridWidth-sm - ($colGap-sm * 11)) / 12;
+$colWidth-md: ($gridWidth-md - ($colGap-md * 11)) / 12;
+$colWidth-lg: ($gridWidth-lg - ($colGap-lg * 11)) / 12;
+$colWidth-xl: ($gridWidth-xl - ($colGap-xl * 11)) / 12;
+$colWidth-xxl: ($gridWidth-xxl - ($colGap-xxl * 11)) / 12;
+
+$numbers: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12;
+
+
+// mixins with mixin dependencies
+@mixin gridGap($value) {
+  display: grid;
+  gap: $value;
+}
+
+@mixin gridColumnRow($column, $row) {
+  grid-column: $column;
+  grid-row: $row;
+}
+
+@mixin gridWidth() {
+  @include mediaRule(width, $gridWidth-xs, $gridWidth-sm, $gridWidth-md, $gridWidth-lg, $gridWidth-xl, $gridWidth-xxl);
+  grid-column: span 12/span 12;
+}
+
+@mixin gridTemplateColumns($columns) {
+  @include mediaRule(grid-template-columns, repeat($columns, $colWidth-xs), repeat($columns, $colWidth-sm), repeat($columns, $colWidth-md), repeat($columns, $colWidth-lg), repeat($columns, $colWidth-xl), repeat($columns, $colWidth-xxl)
+  );
+}
+
+@mixin gridColumnGap() {
+  @include mediaRule(column-gap, $colGap-xs, $colGap-sm, $colGap-md, $colGap-lg, $colGap-xl, $colGap-xxl);
+}
+
+@mixin gridTemplateRows($rows) {
+  @include mediaRule(grid-template-rows, repeat($rows, max-content), repeat($rows, max-content), repeat($rows, max-content), repeat($rows, max-content), repeat($rows, max-content), repeat($rows, max-content));
+}
+
+@mixin offset {
+  @each $colIdx in $numbers {
+
+    &-offset-#{$colIdx} {
+      @include mediaRule(margin-left, ($colWidth-xs + $colGap-xs) * $colIdx, ($colWidth-sm + $colGap-sm) * $colIdx, ($colWidth-md + $colGap-md) * $colIdx, ($colWidth-lg + $colGap-lg) * $colIdx, ($colWidth-xl + $colGap-xl) * $colIdx, ($colWidth-xxl + $colGap-xxl) * $colIdx);
+
+      @include mediaRule(margin-right, ($colWidth-xs + $colGap-xs) * $colIdx, ($colWidth-sm + $colGap-sm) * $colIdx, ($colWidth-md + $colGap-md) * $colIdx, ($colWidth-lg + $colGap-lg) * $colIdx, ($colWidth-xl + $colGap-xl) * $colIdx, ($colWidth-xxl + $colGap-xxl) * $colIdx);
+    }
+
+    &-offset-l-#{$colIdx} {
+      @include mediaRule(margin-left, ($colWidth-xs + $colGap-xs) * $colIdx, ($colWidth-sm + $colGap-sm) * $colIdx, ($colWidth-md + $colGap-md) * $colIdx, ($colWidth-lg + $colGap-lg) * $colIdx, ($colWidth-xl + $colGap-xl) * $colIdx, ($colWidth-xxl + $colGap-xxl) * $colIdx);
+    }
+
+    &-offset-r-#{$colIdx} {
+      @include mediaRule(margin-right, ($colWidth-xs + $colGap-xs) * $colIdx, ($colWidth-sm + $colGap-sm) * $colIdx, ($colWidth-md + $colGap-md) * $colIdx, ($colWidth-lg + $colGap-lg) * $colIdx, ($colWidth-xl + $colGap-xl) * $colIdx, ($colWidth-xxl + $colGap-xxl) * $colIdx);
+    }
+
+  }
+}
+
+// mixins with mixin dependencies
+@mixin col-rules {
+  width: 100%;
+  @each $start in $numbers {
+
+    &-#{$start} {
+      grid-column: span $start / span $start;
+
+      &-grid {
+        display: grid;
+        grid-column: span $start / span $start;
+        @include gridTemplateColumns($start);
+        @include gridColumnGap();
+      }
+    }
+  }
+}

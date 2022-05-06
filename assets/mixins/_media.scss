@@ -1,0 +1,22 @@
+// mixins without dependencies
+@mixin media-xs() { @media (max-width: $xs) { @content }}
+
+@mixin media-sm() { @media (min-width: $xs) and (max-width: $sm) { @content }}
+
+@mixin media-md() { @media (min-width: $sm) and (max-width: $md) { @content }}
+
+@mixin media-lg() { @media (min-width: $md) and (max-width: $lg) { @content }}
+
+@mixin media-xl() { @media (min-width: $lg) and (max-width: $xl) { @content }}
+
+@mixin media-xxl() { @media (min-width: $xl) { @content }}
+
+// mixins with mixin dependencies
+@mixin mediaRule($key, $value1, $value2, $value3, $value4, $value5, $value6) {
+  @include media-xs() { #{$key}: $value1 }
+  @include media-sm() { #{$key}: $value2 }
+  @include media-md() { #{$key}: $value3 }
+  @include media-lg() { #{$key}: $value4 }
+  @include media-xl() { #{$key}: $value5 }
+  @include media-xxl() { #{$key}: $value6 }
+}

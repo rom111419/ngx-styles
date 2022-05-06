@@ -1,0 +1,16 @@
+// mixins without dependencies
+@mixin square($w) {
+  width: $w;
+  height: $w
+}
+
+@mixin rectangle($w, $h) {
+  width: $w;
+  height: $h
+}
+
+// mixins with mixin dependencies
+@mixin circle($w, $h, $radius) {
+  @include rectangle($w, $h);
+  border-radius: $radius
+}

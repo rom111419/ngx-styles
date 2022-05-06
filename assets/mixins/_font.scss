@@ -1,0 +1,16 @@
+/* mixins without dependencies */
+@mixin font1($_size) {
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
+  color: $c1;
+}
+
+@mixin fontBrown($_size, $line-height, $family: Brown-Regular) {
+  font-size: $_size;
+  font-family: $family, serif;
+  line-height: $line-height;
+  color: $c1;
+}
+
+/* mixins with mixin dependencies */
