@@ -7,6 +7,11 @@
   "engines": {
     "node": ">=16.13.0"
   },
+  "scripts": {
+    "ngx-ngx-styles__watch": "ng build ngx-styles --watch",
+    "ngx-ngx-styles__build-dev": "ng build ngx-styles --configuration development",
+    "ngx-ngx-styles__build": "ng build ngx-styles"
+  },
   "peerDependencies": {
     "@angular/common": "^13.1.0",
     "@angular/core": "^13.1.0"
@@ -17,10 +22,5 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/rom111419/ngx-styles"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm version patch"
-    }
   }
 }
