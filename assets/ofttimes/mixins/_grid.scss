@@ -13,12 +13,12 @@ $colGap-lg: 10px;
 $colGap-xl: 10px;
 $colGap-xxl: 10px;
 
-$colWidth-xs: ($gridWidth-xs - ($colGap-xs * 11)) / 12;
-$colWidth-sm: ($gridWidth-sm - ($colGap-sm * 11)) / 12;
-$colWidth-md: ($gridWidth-md - ($colGap-md * 11)) / 12;
-$colWidth-lg: ($gridWidth-lg - ($colGap-lg * 11)) / 12;
-$colWidth-xl: ($gridWidth-xl - ($colGap-xl * 11)) / 12;
-$colWidth-xxl: ($gridWidth-xxl - ($colGap-xxl * 11)) / 12;
+$colWidth-xs: calc(($gridWidth-xs - ($colGap-xs * 11)) / 12);
+$colWidth-sm: calc(($gridWidth-sm - ($colGap-sm * 11)) / 12);
+$colWidth-md: calc(($gridWidth-md - ($colGap-md * 11)) / 12);
+$colWidth-lg: calc(($gridWidth-lg - ($colGap-lg * 11)) / 12);
+$colWidth-xl: calc(($gridWidth-xl - ($colGap-xl * 11)) / 12);
+$colWidth-xxl: calc(($gridWidth-xxl - ($colGap-xxl * 11)) / 12);
 
 $numbers: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12;
 

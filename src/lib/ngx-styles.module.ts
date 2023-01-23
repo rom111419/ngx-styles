@@ -1,15 +1,9 @@
 import { NgModule } from '@angular/core';
-import { NgxStylesComponent } from './ngx-styles.component';
-
 
 @NgModule({
-  declarations: [
-    NgxStylesComponent,
-  ],
+  declarations: [],
   imports: [],
-  exports: [
-    NgxStylesComponent,
-  ],
+  exports: [],
 })
 export class NgxStylesModule {
 }

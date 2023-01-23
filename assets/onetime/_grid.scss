@@ -1,4 +1,4 @@
-.grid {
+.gr {
   display: grid;
   margin: auto;
   @include gridWidth();
@@ -7,7 +7,7 @@
   @include gridColumnGap();
 
 
-  .col {
+  .c {
     @include col-rules;
 
     &-xs {
