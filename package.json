@@ -8,9 +8,9 @@
     "node": ">=16.13.0"
   },
   "scripts": {
-    "ngx-ngx-styles__watch": "ng build ngx-styles --watch",
-    "ngx-ngx-styles__build-dev": "ng build ngx-styles --configuration development",
-    "ngx-ngx-styles__build": "ng build ngx-styles"
+    "ngx-styles__watch": "ng build ngx-styles --watch",
+    "ngx-styles__build-dev": "ng build ngx-styles --configuration development",
+    "ngx-styles__build": "ng build ngx-styles"
   },
   "peerDependencies": {
     "@angular/common": "^15.0.3",
