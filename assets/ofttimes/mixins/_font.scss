@@ -13,4 +13,37 @@
   color: $c1;
 }
 
+/**
+ * Mixin for loading custom fonts using `@font-face`.
+ *
+ * @param $fontName - Name of the font.
+ * @param $fontFileName - File name of the font.
+ * @param $fontStyle - Font style. Default: `normal`.
+ * @param $fontWeight - Font weight. Default: `normal`.
+ * @param $fontFormats - Font formats. Default: `eot, woff2, woff, ttf, svg`.
+ *
+ * @usage
+ * Include this mixin in a selector to use a custom font.
+ *
+ * ```scss
+ * .my-class {
+ *   @include load-font('MyFont', 'myfont', 'normal', '400');
+ *   font-family: 'MyFont', sans-serif;
+ * }
+ * ```
+ */
+
+@mixin font-face($font-family, $file-path, $font-weight: normal, $font-style: normal) {
+  @font-face {
+    font-family: $font-family;
+    src: url($file-path + '.woff2') format('woff2'),
+         url($file-path + '.woff') format('woff'),
+         url($file-path + '.ttf') format('truetype'),
+         url($file-path + '.svg#svgFontName') format('svg');
+    font-weight: $font-weight;
+    font-style: $font-style;
+  }
+  font-family: $font-family, sans-serif;
+}
+
 /* mixins with mixin dependencies */
